@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('travel_agents', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained('users')->onDelete('cascade');
-            $table->string( column: 'phone_number' );
-            $table->string( column: 'company_name', length: 100 );
-            $table->string( column: 'country', length: 20 );
-            $table->string( column: 'city', length: 20 );
+            $table->foreignId('user_id');
+            $table->string( 'phone_number' );
+            $table->string( 'company_name', 100 );
+            $table->string( 'country', 20 );
+            $table->string( 'city', 20 );
             $table->timestamps();
+        });
+        Schema::table('travel_agents', function (Blueprint $table) {
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

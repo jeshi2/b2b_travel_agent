@@ -13,8 +13,8 @@ return new class extends Migration
     {
         Schema::create('accommodations', function (Blueprint $table) {
             $table->id();
-            $table->string( column: 'room_name', length: 255 );
-            $table->string( column: 'description', length: 255 );
+            $table->string( 'room_name', 255 );
+            $table->string( 'description', 255 );
             $table->decimal('standard_rack_rate', 10, 2);
             $table->timestamps();
         });
