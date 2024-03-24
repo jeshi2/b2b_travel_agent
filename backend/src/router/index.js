@@ -4,6 +4,11 @@ import { createRouter, createWebHistory } from "vue-router";
 import RequestPassword from "@/views/RequestPassword.vue";
 import PasswordReset from "@/views/PasswordReset.vue";
 
+import {computed} from 'vue'
+import store from '@/store';
+
+const token = computed(() => store.state.token)
+
 const routes = [
     {
         path: '/dashboard',
@@ -21,9 +26,10 @@ const routes = [
         component: RequestPassword
     },
     {
-        path: '/password-reset',
+        path: '/password-reset/:token',
         name: 'password-reset',
-        component: PasswordReset
+        component: PasswordReset,
+        props: true
     },
 ];
 

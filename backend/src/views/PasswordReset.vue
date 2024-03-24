@@ -42,6 +42,8 @@
 export default {
     name: "PasswordReset"
 }
+
+
 </script>
 
 <style scoped>
