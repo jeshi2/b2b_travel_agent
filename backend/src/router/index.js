@@ -6,6 +6,7 @@ import PasswordReset from "@/views/PasswordReset.vue";
 
 import {computed} from 'vue'
 import store from '@/store';
+import SignUp from "@/views/SignUp.vue";
 
 const token = computed(() => store.state.token)
 
@@ -19,6 +20,11 @@ const routes = [
         path: '/login',
         name: 'login',
         component: Login
+    },
+    {
+        path: '/signup',
+        name: 'signup',
+        component: SignUp
     },
     {
         path: '/request-password',
